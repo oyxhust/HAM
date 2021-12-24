@@ -1,0 +1,41 @@
+DataRoot: /PATH/TO/NIH_Chest_Xray14
+Data_CLASSES: ['Atelectasis', 'Cardiomegaly', 'Effusion', 'Infiltration', 'Mass', 'Nodule', 'Pneumonia', 'Pneumothorax', 'Consolidation', 'Edema', 'Emphysema', 'Fibrosis', 'Pleural_Thickening', 'Hernia']
+GPUs: [0,1]
+num_workers: 8
+Means: [0.5, 0.5, 0.5] 
+Stds: [0.5, 0.5, 0.5]
+display_freq: 10
+display_ncols: 2
+display_id: 1
+display_winsize: 512
+display_server: http://localhost
+update_html_freq: 100
+arch: resnet50
+Downsampling: 8
+Using_pooling: True
+Using_dilation: True
+Using_pretrained_weights: True
+Using_CRF: False
+in_channels: 3
+img_size: 512
+batchsize: 24
+resize_factor: dynamic
+optim: Adam
+lr: 0.00002
+weight_decay: 0.0001
+lr_decay_freq: 10
+lr_decay: 0.1
+trainSet: fold3/train_0.7_0.7.txt
+helperSet: fold3/train_0.7.txt
+valClsSet: fold3/val_0.1_0.1.txt
+valIoUSet: fold3/val_0.1.txt
+testClsSet: fold3/test_0.2_0.2.txt
+testIoUSet: fold3/test.txt
+num_epoch: 20
+print_freq: 20
+test_freq: 1
+save_model_freq: 1
+display_env: main
+display_port: 8097
+Attention:
+  resume:
